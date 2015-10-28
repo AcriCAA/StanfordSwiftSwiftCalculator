@@ -15,7 +15,7 @@ class ViewController: UIViewController
 
     @IBOutlet weak var display: UILabel!
 //            variable name     type
-// ^^^ syntax
+// ^ syntax 
 
     var userIsInTheMiddleOfTypingANumber: Bool = false
     
@@ -50,7 +50,8 @@ class ViewController: UIViewController
         switch operation {
         
         case"×": performOperation {$0 * $1}
-           //        case"÷":
+        case"÷": performOperation {$0 / $1}
+        case"÷":
 //        case"+":
 //        case"−":
         default: break
