@@ -51,9 +51,9 @@ class ViewController: UIViewController
         
         case"×": performOperation {$0 * $1}
         case"÷": performOperation {$0 / $1}
-        case"÷":
-//        case"+":
-//        case"−":
+        case"+": performOperation {$0 + $1}
+        case"−": performOperation {$1 - $0}
+        case"√": performOperationSqrt { sqrt($0) }
         default: break
         
         }
@@ -67,6 +67,14 @@ class ViewController: UIViewController
         enter()
                 }
     
+    }
+    
+    func performOperationSqrt(operation: Double -> Double){
+        if operandStack.count >= 1{
+            displayValue = operation(operandStack.removeLast())
+            enter()
+        }
+        
     }
     
     var operandStack = Array<Double>()
