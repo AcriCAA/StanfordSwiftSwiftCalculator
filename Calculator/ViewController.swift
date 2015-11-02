@@ -17,25 +17,25 @@ class ViewController: UIViewController
 //            variable name     type
 // ^ syntax 
 
-    var userIsInTheMiddleOfTypingANumber: Bool = false
+    var userIsInTheMiddleOfTypingANumber = false
     
     @IBAction func appendDigit(sender: UIButton) {
     
         
         let digit = sender.currentTitle!
-        print("digit equals \(digit)")
+        
+        
         if userIsInTheMiddleOfTypingANumber{
         display.text = display.text! + digit
-        } else {
+        }
+        
+        else {
         display.text = digit
         userIsInTheMiddleOfTypingANumber = true
-        
         }
     }
     
     
-    
-
     
     
     
@@ -61,7 +61,7 @@ class ViewController: UIViewController
     }
     
     
-    func performOperation(operation: (Double, Double) ->Double ){
+    func performOperation(operation: (Double, Double) -> Double ){
         if operandStack.count >= 2{
         displayValue = operandStack.removeLast() * operandStack.removeLast()
         enter()
@@ -79,11 +79,17 @@ class ViewController: UIViewController
     
     var operandStack = Array<Double>()
    
+
+    
+    
     @IBAction func enter() {
+        
         userIsInTheMiddleOfTypingANumber = false
         operandStack.append(displayValue)
         print("operandStack = \(operandStack)")
+        
     }
+    
     
     var displayValue: Double {
         get{
